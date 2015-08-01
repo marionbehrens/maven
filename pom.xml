@@ -7,10 +7,32 @@
         <version>1.0</version>
     </parent>
 
+    <profiles>
+      <profile>
+        <id>project-35</id>
+          <properties>
+            <current.project.id>35</current.project.id>
+          </properties>
+      </profile>
+      <profile>
+        <id>project-66</id>
+          <properties>
+            <current.project.id>66</current.project.id>
+          </properties>
+      </profile>
+    </profiles>
 
    <modelVersion>4.0.0</modelVersion>
    <build>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources/${current.project.id}/</directory>
+      </resource>
+    </resources>
+
       <plugins>
+
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-release-plugin</artifactId>
