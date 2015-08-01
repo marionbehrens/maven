@@ -1,39 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <parent>
-        <groupId>de.informatica-feminale</groupId>
-        <artifactId>buildmanagement-parent-marion</artifactId>
-        <version>1.0</version>
-    </parent>
-
-    <profiles>
+   <parent>
+      <groupId>de.informatica-feminale</groupId>
+      <artifactId>buildmanagement-parent-marion</artifactId>
+      <version>1.0</version>
+   </parent>
+   <profiles>
       <profile>
-        <id>project-35</id>
-          <properties>
+         <id>project-00</id>
+         <activation>
+            <activeByDefault>true</activeByDefault>
+         </activation>
+         <properties>
+            <current.project.id>00</current.project.id>
+         </properties>
+      </profile>
+      <profile>
+         <id>project-35</id>
+         <properties>
             <current.project.id>35</current.project.id>
-          </properties>
+         </properties>
       </profile>
       <profile>
-        <id>project-66</id>
-          <properties>
+         <id>project-66</id>
+         <properties>
             <current.project.id>66</current.project.id>
-          </properties>
+         </properties>
       </profile>
-    </profiles>
-
+   </profiles>
    <modelVersion>4.0.0</modelVersion>
    <build>
-
-    <resources>
-      <resource>
-        <directory>src/main/resources/${current.project.id}/</directory>
-      </resource>
-    </resources>
-
+      <resources>
+         <resource>
+            <directory>src/main/resources/${current.project.id}/</directory>
+         </resource>
+      </resources>
       <plugins>
-
-        <plugin>
+         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-release-plugin</artifactId>
             <version>2.5.2</version>
@@ -98,7 +101,8 @@
                               <limit>
                                  <counter>LINE</counter>
                                  <value>COVEREDRATIO</value>
-                                 <minimum>0.0</minimum> <!-- 0.9 -->
+                                 <minimum>0.0</minimum>
+                                 <!-- 0.9 -->
                               </limit>
                            </limits>
                         </rule>
